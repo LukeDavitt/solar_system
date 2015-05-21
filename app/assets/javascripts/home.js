@@ -61,6 +61,19 @@ var buildSun = function(){
 
       scene.add(earthMesh);
 
+
+      // create the geometry sphere
+		var stargeometry  = new THREE.SphereGeometry(300, 32, 32);
+		// create the material, using a texture of startfield
+		var starmaterial  = new THREE.MeshBasicMaterial();
+		starmaterial.map   = THREE.ImageUtils.loadTexture('/assets/galaxy_starfield.png');
+		starmaterial.side  = THREE.BackSide;
+		// create the mesh based on geometry and material
+		var starmesh  = new THREE.Mesh(stargeometry, starmaterial);
+
+	scene.add(starmesh);
+
+
       // add subtle ambient lighting
       var ambientLight = new THREE.AmbientLight(0x404040);
       scene.add(ambientLight);
